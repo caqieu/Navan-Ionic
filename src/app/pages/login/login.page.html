@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button text="" style="display: block;"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Fazer Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <main id="main-login">
+
+    <div>
+
+
+      <input name="email" type="text" placeholder="E-mail">
+      <input name="password" type="password" placeholder="Senha">
+
+      <ion-list>
+        <ion-radio-group value="passageiro">
+          <ion-list-header>
+            <ion-label>Deseja entrar como:</ion-label>
+          </ion-list-header>
+
+          <ion-item>
+            <ion-label>Motorista</ion-label>
+            <ion-radio slot="start" value="motorista"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Passageiro</ion-label>
+            <ion-radio slot="start" value="passageiro"></ion-radio>
+          </ion-item>
+
+
+        </ion-radio-group>
+      </ion-list>
+
+
+      <div id="div-btn">
+        <ion-button >
+          Login
+        </ion-button>
+         
+        <ion-button routerLink="/registro" router-direction="forward"  >
+          Registre-se
+        </ion-button>
+      </div>
+    </div>
+  </main>
+
+</ion-content>

@@ -1,0 +1,27 @@
+
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button text="" style="display: block;"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <main>
+    <div id="div-register-form">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <p>Registre-se!</p>
+
+        <input placeholder="Nome" formControlName="nome">
+        <input placeholder="Email" formControlName="email">
+        <input placeholder="Senha" formControlName="senha" type="password">
+        <input placeholder="Confirmar senha" formControlName="confirmacao_senha" type="password">
+
+        <button type="submit" [disabled]="registerForm.invalid">Cadastrar</button>
+      </form>
+    </div>
+  </main>
+</ion-content>
