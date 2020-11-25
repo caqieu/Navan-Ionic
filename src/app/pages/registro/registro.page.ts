@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
+
 
 @Component({
   selector: 'app-registro',
@@ -7,17 +8,30 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./registro.page.scss'],
 })
 export class RegistroPage implements OnInit {
+public tipoRegistro: 'passageiro'
 
-  public registerForm = this.formBuilder.group({
-    nome: "" ,
-    email: "",
-    senha: "",
-    confirmacao_senha: "",
-  })
+  
+  public user = {
+    name:'',
+    email: '',
+    senha:'',
+    confirmacao_senha:'',
+    
+  };
 
-  constructor(
-    private formBuilder: FormBuilder
-  ) { }
+
+  public fGroup: FormGroup;
+
+  constructor(public registerForm: FormBuilder) {
+    this.fGroup = this.registerForm.group({
+      nome: "" ,
+      email: "",
+      senha: "",
+      confirmacao_senha: "",
+    });
+    
+   }
+ 
 
   ngOnInit() {
   }

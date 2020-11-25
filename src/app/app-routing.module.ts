@@ -14,10 +14,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'registro',
-    loadChildren: () => import('./pages/registro/registro.module').then( m => m.RegistroPageModule)
-  },
-  {
     path: 'motorista',
     loadChildren: () => import('./pages/motorista/motorista.module').then( m => m.MotoristaPageModule)
   },
@@ -25,6 +21,11 @@ const routes: Routes = [
     path: 'passageiro',
     loadChildren: () => import('./pages/passageiro/passageiro.module').then( m => m.PassageiroPageModule)
   },
+  {
+    path: 'registro',
+    loadChildren: () => import('./pages/registro/registro.module').then( m => m.RegistroPageModule)
+  },
+
 ];
 
 @NgModule({

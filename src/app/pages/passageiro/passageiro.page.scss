@@ -1,0 +1,72 @@
+#main-passageiro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    
+
+    #div-diario{
+        width: 100%;
+        height: 50%;
+
+        ion-list-header{
+            font-size:20px;
+            padding:2px;
+                                   
+        }
+
+        ion-item{
+            margin: 3px;
+            border: 3px solid rgba(3, 3, 3, 3.3);
+            border-radius:5px;
+            
+               
+        }
+        ion-button{
+            color: black;
+            font-size: 20px;
+            font-weight: bold;
+            height:20%;
+            width: 30%;
+            
+            
+            
+           
+        }
+
+    }
+    #datas {
+        width: 100%;
+        height: 100%;
+        
+        ion-label{
+            font-size:20px;
+          margin-top:0px;
+            font-weight: bold;
+        }
+        ion-input{
+            background:yellow;
+            border: 3px solid rgba(3, 3, 3, 3.3);
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+                   }
+        ion-button{
+            background: black;
+            border: 3px solid rgba(3, 3, 3, 3.3);
+            border-radius: 5px;
+            font-size: 20px;
+            font-weight: bold;
+            width: 100%;
+            height: 100%;
+            
+           
+        }
+        ion-item{
+            padding:10px;
+            
+        }
+    }
+}    
