@@ -57,6 +57,17 @@
         </ion-button>
       </div>
     </div>
+
+    <ion-item *ngFor="let passageiro of listaPassageiros">
+      <div>
+        <h4>{{passageiro.nome}}</h4>
+        <p>{{passageiro.email}}</p>
+      </div>
+      
+      <ion-badge color="dark" slot="end">
+        ID: {{passageiro.id}}
+      </ion-badge>
+    </ion-item>
   </main>
 
 </ion-content>
