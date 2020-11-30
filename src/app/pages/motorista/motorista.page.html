@@ -9,10 +9,17 @@
 
 <ion-content>
   <ion-list>
-  <ion-item *ngFor="let presenca of passageiros">
-    <h2>(pasageiros.nome)</h2>
-    <p></p>
-  </ion-item>
+    <ion-item *ngFor="let passageiro of listaPassageiros" [routerLink]="'/exibir-usuario/' + passageiro.id">
+      <div>
+        <h4>{{passageiro.nome}}</h4>
+        <p>{{passageiro.destino}}</p>
+        <p>{{passageiro.endereco}}</p>
+      </div>
+      
+      <ion-badge color="dark" slot="end">
+        ID: {{passageiro.id}}
+      </ion-badge>
+    </ion-item>
   </ion-list>
 
 </ion-content>

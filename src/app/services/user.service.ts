@@ -10,8 +10,8 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  public buscarTodos() {
-    return this.http.get(`${this.url}`)
+  public buscarTodos(presenca: boolean) {
+    return this.http.get(`${this.url}?presenca=${presenca}`)
   }
 
   public buscarIdMotorista(id_motorista: number) {

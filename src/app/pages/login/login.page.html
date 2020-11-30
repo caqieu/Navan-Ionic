@@ -11,9 +11,15 @@
   <main id="main-login">
 
     <div>
-      <input name="email" type="text" placeholder="E-mail" >
-      <input name="password" type="password" placeholder="Senha" >
-    
+      <form [formGroup]="loginForm">
+        <input formControlName="username" name="username" type="text" placeholder="username" >
+        <input formControlName="password" name="password" type="password" placeholder="Senha" >
+      </form>
+
+      <ng-container *ngIf="errors">
+				<p id="error-msg">{{errors.message}}</p>
+      </ng-container>
+       
     <div id="div-radio-login">
       <ion-list>
         <ion-radio-group [(ngModel)]="tipoLogin">
@@ -23,12 +29,12 @@
 
           <ion-item mode=md>
             <ion-label>Motorista</ion-label>
-            <ion-radio slot="start" value="motorista" color="dark" mode=md></ion-radio>
+            <ion-radio slot="start" value="Motorista" color="dark" mode=md></ion-radio>
           </ion-item>
 
           <ion-item mode=md> 
             <ion-label>Passageiro</ion-label>
-            <ion-radio slot="start" value="passageiro" color="dark" mode=md></ion-radio>
+            <ion-radio slot="start" value="Passageiro" color="dark" mode=md></ion-radio>
           </ion-item>
 
 
@@ -36,16 +42,16 @@
       </ion-list>
     </div>
 
-    <div *ngIf="tipoLogin == 'passageiro';">
+    <div *ngIf="tipoLogin == 'Passageiro';">
       <div id="div-btn">
-        <ion-button  routerLink="/passageiro" router-direction="forward" color="dark" mode=md>
+        <ion-button  (click)="login()" router-direction="forward" color="dark" mode=md>
           Login
         </ion-button>
       </div>
     </div>
-    <div *ngIf="tipoLogin == 'motorista';">
+    <div *ngIf="tipoLogin == 'Motorista';">
       <div id="div-btn">
-        <ion-button  routerLink="/motorista" router-direction="forward" color="dark" mode=md>
+        <ion-button  (click)="login()" router-direction="forward" color="dark" mode=md>
           Login
         </ion-button>
       </div>
@@ -58,16 +64,7 @@
       </div>
     </div>
 
-    <ion-item *ngFor="let passageiro of listaPassageiros">
-      <div>
-        <h4>{{passageiro.nome}}</h4>
-        <p>{{passageiro.email}}</p>
-      </div>
-      
-      <ion-badge color="dark" slot="end">
-        ID: {{passageiro.id}}
-      </ion-badge>
-    </ion-item>
+    
   </main>
 
 </ion-content>

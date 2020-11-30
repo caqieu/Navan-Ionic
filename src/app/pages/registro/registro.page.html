@@ -31,16 +31,17 @@
     
       <div *ngIf="tipoRegistro == 'passageiro';">
       <div id="div-register-form">
-        <form>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
           <p>Registre-se como Passageiro</p>
-          <input placeholder="Nome">
-          <input placeholder="Email">
-          <input placeholder="CPF">
-          <input placeholder="Telefone">
-          <input placeholder="Escola">
-          <input placeholder="Endereço">
-          <input placeholder="Senha" type="password">
-          <input placeholder="Confirmar senha" type="password">
+          <input placeholder="Nome" formControlName="nome">
+          <input placeholder="Email" formControlName="email">
+          <input placeholder="CPF" formControlName="cpf">
+          <input placeholder="Telefone" formControlName="telefone">
+          <input placeholder="Escola" formControlName="destino">
+          <input placeholder="Endereço" formControlName="endereco">
+          <input placeholder="Nome de usuário" formControlName="username">
+          <input placeholder="Senha" type="password" formControlName="password">
+          <input placeholder="Confirmar senha" type="password" formControlName="confirmar_password" >
 
           <button type="submit">Registrar</button>
         </form>
@@ -50,17 +51,17 @@
     
       <div *ngIf="tipoRegistro == 'motorista';">
       <div id="div-register-form">
-      <form>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()"> 
         <p>Registre-se como Motorista</p>
-        <input placeholder="Nome">
-        <input placeholder="Email">
-        <input placeholder="CPF">
-        <input placeholder="Telefone">
-        <input placeholder="Placa">
-        <input placeholder="Senha" type="password">
-        <input placeholder="Confirmar senha" type="password">
+        <input placeholder="Nome" formControlName="nome">
+        <input placeholder="Email" formControlName="email">
+        <input placeholder="CPF" formControlName="cpf">
+        <input placeholder="Telefone" formControlName="telefone">
+        <input placeholder="Nome de usuário" formControlName="username">
+        <input placeholder="Senha" type="password" formControlName="password">
+        <input placeholder="Confirmar senha" type="password" formControlName="confirmar_password" >
 
-        <button type="submit">Registrar</button>
+        <button type="submit" [disabled]="registerForm.invalid">Registrar</button>
       </form>
     </div>
   </div>

@@ -25,6 +25,10 @@ const routes: Routes = [
     path: 'registro',
     loadChildren: () => import('./pages/registro/registro.module').then( m => m.RegistroPageModule)
   },
+  {
+    path: 'exibir-usuario/:id',
+    loadChildren: () => import('./pages/exibir-usuario/exibir-usuario.module').then( m => m.ExibirUsuarioPageModule)
+  },
 
 ];
 
