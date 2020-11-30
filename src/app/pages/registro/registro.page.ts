@@ -78,7 +78,13 @@ export class RegistroPage implements OnInit {
         const alert = await this.alertController.create({
           header: 'Usuário Criado',
           message: 'Usuário criado com sucesso!',
-          buttons: ['ok']
+          buttons: [
+            {
+              text: 'ok',
+              handler: () => {
+                this.router.navigate(['/'])
+              }
+            }]
         })
     
         await alert.present();
@@ -106,7 +112,13 @@ export class RegistroPage implements OnInit {
         const alert = await this.alertController.create({
           header: 'Usuário Criado',
           message: 'Usuário criado com sucesso!',
-          buttons: ['ok']
+          buttons: [
+            {
+              text: 'ok',
+              handler: () => {
+                this.router.navigate(['/'])
+              }
+            }]
         })
     
         await alert.present();
