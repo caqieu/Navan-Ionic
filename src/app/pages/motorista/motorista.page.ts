@@ -1,3 +1,6 @@
+import { takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+import { UserService } from 'src/app/services/user.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,33 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MotoristaPage implements OnInit {
   
-  constructor(public passageiros: object) { 
-    this.passageiros = [
-     {"nome" : "Renan",
-      "img" : "",
-      "endereco":"rua 1",
-
-    },
-    {"nome" : "Caique",
-    "img" : "",
-    "endereco":"rua 2",
-    
-  },
-  {"nome" : "Robson",
-  "img" : "",
-  "endereco":"rua 3",
+  private destroy: Subject<boolean> = new Subject<boolean>();
   
-},
-{"nome" : "Gabriel",
-"img" : "",
-"endereco":"rua 4",
-
-}
-
-    ];
+  public listaPassageiros;
+  
+  constructor(private userService: UserService) { 
   }
 
   ngOnInit() {
+    this.getPassageiros();
+  }
+
+  getPassageiros() {
+    this.userService
+    .buscarTodos(true)
+    .pipe(takeUntil(this.destroy))
+    .subscribe((passageiros) => {
+      this.listaPassageiros = passageiros;
+      console.log('passageiros', passageiros)
+    })
   }
 
 }

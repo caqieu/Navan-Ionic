@@ -32,11 +32,14 @@ export class AuthenticationService {
 	login(username: string, password: string, tipoLogin: string) {
 		return this.http.post<any>(`${environment.apiUrl}/login${tipoLogin}`, { username, password })
 			.pipe(map(user => {
-				localStorage.setItem('user', (JSON.parse(user)));
-				this.currentUserSubject.next(user.data);
-				return user.data;
+				console.log('user', user)
+				localStorage.setItem('user', JSON.stringify(user.usuario));
+				localStorage.setItem('token', JSON.stringify(user.token));
+				this.currentUserSubject.next(user.usuario);
+				return user.usuario;
 			}));
 	}
+
 	logout() {
 		return this.http.post<any>(`${environment.apiUrl}/logout`, { })
 			.pipe(map(() => {

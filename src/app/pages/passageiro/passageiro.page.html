@@ -12,24 +12,24 @@
 
     <div id="div-diario">
       <ion-list>
-        <ion-radio-group>
+        <ion-radio-group [(ngModel)]="presenca">
           <ion-list-header>
             <ion-label>Usará o transporte hoje?</ion-label>
           </ion-list-header>
 
           <ion-item mode=md>
             <ion-label>Sim</ion-label>
-            <ion-radio slot="start" value="motorista" color="dark" mode=md></ion-radio>
+            <ion-radio slot="start" value="true" color="dark" mode=md></ion-radio>
           </ion-item>
 
           <ion-item mode=md>
             <ion-label>Não</ion-label>
-            <ion-radio slot="start" value="passageiro" color="dark" mode=md></ion-radio>
+            <ion-radio slot="start" value="false" color="dark" mode=md></ion-radio>
           </ion-item>
         </ion-radio-group>
 
       </ion-list>
-      <ion-button color=dark>Enviar</ion-button>
+      <ion-button color=dark (click)="enviarPresenca()">Enviar</ion-button>
     </div>
     <div id="datas">
       <ion-list>
@@ -37,16 +37,16 @@
           <ion-label>Agendar data para ausência:</ion-label>
         </ion-item>
         <ion-item>
-          <ion-input mode=md pattern="date" placeholder='Ausência'></ion-input>
+          <input mask="00/00/0000" class="date-input" mode=md placeholder='Ausência' />
         </ion-item>
         <ion-item>
           <ion-label>Agendar data para pagamento:</ion-label>
         </ion-item>
         <ion-item>
-          <ion-input mode=md pattern="date" placeholder='Pagamento'></ion-input>
+          <input class="date-input" mode=md placeholder='Pagamento' mask="00/00/0000"/>
         </ion-item>
         <ion-item>
-          <ion-button color=dark>Agendar</ion-button>
+          <ion-button color=dark (click)="alertData()">Agendar</ion-button>
         </ion-item>
       </ion-list>
     </div>

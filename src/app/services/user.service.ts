@@ -6,7 +6,7 @@ import {HttpClient} from '@angular/common/http'
 })
 export class UserService {
 
-  private url = 'http://localhost:8080/passageiros'
+  private url = 'http://localhost:5432/passageiros'
 
   constructor(private http: HttpClient) { }
 
@@ -20,5 +20,19 @@ export class UserService {
 
   public buscarId(id: number) {
     return this.http.get(`${this.url}/${id}`)
+  }
+
+  public registerMotorista(userObj) {
+    return this.http.post(`http://localhost:5432/registerMotorista`, userObj);
+  }
+
+  public registerPassageiro(userObj) {
+    return this.http.post(`http://localhost:5432/registerPassageiro`, userObj);
+  }
+
+  public updatePassageiro(passageiro) {
+    return this.http.patch(`http://localhost:5432/passageiros/${passageiro.id}`, {
+      presenca: passageiro.presenca
+    });
   }
 }

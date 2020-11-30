@@ -1,14 +1,13 @@
 <ion-header>
   <ion-toolbar color="dark">
     <ion-buttons slot="start">
-      <ion-back-button> </ion-back-button>
+      <ion-back-button mode="md"> </ion-back-button>
     </ion-buttons>
     <ion-title>Registro</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  
   <main>
     <div id="div-radio">
       <ion-list>
@@ -17,11 +16,11 @@
             <ion-label>Deseja registrar-se como:</ion-label>
           </ion-list-header>
 
-          <ion-item>
+          <ion-item class="ion-item-tipo" lines="none">
             <ion-label>Motorista</ion-label>
             <ion-radio value="motorista" color="dark" mode=md></ion-radio>
           </ion-item>
-          <ion-item>
+          <ion-item class="ion-item-tipo" lines="none">
             <ion-label>Passageiro</ion-label>
             <ion-radio value="passageiro" color="dark" mode=md></ion-radio>
           </ion-item>
@@ -29,9 +28,9 @@
       </ion-list>
     </div>
     
-      <div *ngIf="tipoRegistro == 'passageiro';">
-      <div id="div-register-form">
-        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <ng-container *ngIf="tipoRegistro == 'passageiro';">
+      <div class="div-register-form">
+        <form [formGroup]="registerFormPassageiro" (ngSubmit)="register()">
           <p>Registre-se como Passageiro</p>
           <input placeholder="Nome" formControlName="nome">
           <input placeholder="Email" formControlName="email">
@@ -41,29 +40,30 @@
           <input placeholder="Endereço" formControlName="endereco">
           <input placeholder="Nome de usuário" formControlName="username">
           <input placeholder="Senha" type="password" formControlName="password">
-          <input placeholder="Confirmar senha" type="password" formControlName="confirmar_password" >
+          
+          <!-- <input placeholder="Confirmar senha" type="password" formControlName="confirmar_password" > -->
 
-          <button type="submit">Registrar</button>
+          <button type="submit" [disabled]="registerFormPassageiro.invalid">Registrar</button>
         </form>
       </div>
-    </div>
+    </ng-container>
 
     
-      <div *ngIf="tipoRegistro == 'motorista';">
-      <div id="div-register-form">
-      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()"> 
-        <p>Registre-se como Motorista</p>
-        <input placeholder="Nome" formControlName="nome">
-        <input placeholder="Email" formControlName="email">
-        <input placeholder="CPF" formControlName="cpf">
-        <input placeholder="Telefone" formControlName="telefone">
-        <input placeholder="Nome de usuário" formControlName="username">
-        <input placeholder="Senha" type="password" formControlName="password">
-        <input placeholder="Confirmar senha" type="password" formControlName="confirmar_password" >
+    <ng-container *ngIf="tipoRegistro == 'motorista';">
+      <div class="div-register-form">
+        <form [formGroup]="registerFormMotorista" (ngSubmit)="register()"> 
+          <p>Registre-se como Motorista</p>
+          <input placeholder="Nome" formControlName="nome">
+          <input placeholder="Email" formControlName="email">
+          <input placeholder="CPF" formControlName="cpf">
+          <input placeholder="Telefone" formControlName="telefone">
+          <input placeholder="Nome de usuário" formControlName="username">
+          <input placeholder="Senha" type="password" formControlName="password">
+          <!-- <input placeholder="Confirmar senha" type="password" formControlName="confirmar_password" > -->
 
-        <button type="submit" [disabled]="registerForm.invalid">Registrar</button>
-      </form>
-    </div>
-  </div>
+          <button type="submit" [disabled]="registerFormMotorista.invalid">Registrar</button>
+        </form>
+      </div>
+    </ng-container>
   </main>
 </ion-content>

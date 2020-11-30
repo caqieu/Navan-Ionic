@@ -12,27 +12,30 @@
 
     <div>
       <form [formGroup]="loginForm">
-        <input formControlName="username" name="username" type="text" placeholder="username" >
+        <input formControlName="username" name="username" type="text" placeholder="Login" >
         <input formControlName="password" name="password" type="password" placeholder="Senha" >
       </form>
 
       <ng-container *ngIf="errors">
 				<p id="error-msg">{{errors.message}}</p>
       </ng-container>
+      <p class="register-text">
+        Não tem uma conta? <a routerLink="/registro">Cadastre-se</a>
+      </p>
        
     <div id="div-radio-login">
       <ion-list>
         <ion-radio-group [(ngModel)]="tipoLogin">
-          <ion-list-header>
-            <ion-label >Deseja entrar como:</ion-label>
+          <ion-list-header class="radio-title">
+            <ion-label>Deseja entrar como:</ion-label>
           </ion-list-header>
 
-          <ion-item mode=md>
+          <ion-item class="ion-item-radio-login" lines="none" mode=md>
             <ion-label>Motorista</ion-label>
             <ion-radio slot="start" value="Motorista" color="dark" mode=md></ion-radio>
           </ion-item>
 
-          <ion-item mode=md> 
+          <ion-item class="ion-item-radio-login" lines="none" mode=md> 
             <ion-label>Passageiro</ion-label>
             <ion-radio slot="start" value="Passageiro" color="dark" mode=md></ion-radio>
           </ion-item>
@@ -42,14 +45,14 @@
       </ion-list>
     </div>
 
-    <div *ngIf="tipoLogin == 'Passageiro';">
-      <div id="div-btn">
-        <ion-button  (click)="login()" router-direction="forward" color="dark" mode=md>
-          Login
-        </ion-button>
-      </div>
+    <div id="div-btn">
+      <ion-button  (click)="login()" router-direction="forward" color="dark" mode=md>
+        Login
+      </ion-button>
     </div>
-    <div *ngIf="tipoLogin == 'Motorista';">
+
+
+    <!-- <div *ngIf="tipoLogin == 'Passageiro';">
       <div id="div-btn">
         <ion-button  (click)="login()" router-direction="forward" color="dark" mode=md>
           Login
@@ -57,11 +60,19 @@
       </div>
     </div>
 
-         <div id="div-btn">
+    <div *ngIf="tipoLogin == 'Motorista';">
+      <div id="div-btn">
+        <ion-button  (click)="login()" router-direction="forward" color="dark" mode=md>
+          Login
+        </ion-button>
+      </div>
+    </div> -->
+
+    <!-- <div id="div-btn">
         <ion-button color="dark" routerLink="/registro" router-direction="forward" mode=md>
           Registre-se
         </ion-button>
-      </div>
+      </div> -->
     </div>
 
     

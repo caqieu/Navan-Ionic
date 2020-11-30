@@ -19,7 +19,7 @@ export class LoginPage implements OnInit {
 	});
 
   public errors;
-  public tipoLogin:'';
+  public tipoLogin = 'Motorista';
 
   public listaPassageiros: any = [];
   
@@ -35,6 +35,7 @@ export class LoginPage implements OnInit {
   }
 
   ngOnInit() {
+	  console.log()
   }
 
   async presentLoading() {
