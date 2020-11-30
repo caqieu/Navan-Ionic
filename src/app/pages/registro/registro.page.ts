@@ -59,8 +59,7 @@ export class RegistroPage implements OnInit {
   ngOnInit() {
   }
 
-  register() {
-
+  async register() {
 
     if(this.tipoRegistro == 'motorista') {
       const obj = {
@@ -96,8 +95,15 @@ export class RegistroPage implements OnInit {
       this.userService
       .registerPassageiro(obj)
       .pipe(takeUntil(this.destroy))
-      .subscribe((result) => {
+      .subscribe(async (result) => {
         console.log('result', result)
+        const alert = await this.alertController.create({
+          header: 'Usuário Criado',
+          message: 'Usuário criado com sucesso!',
+          buttons: ['ok']
+        })
+    
+        await alert.present();
       })
     }
 
