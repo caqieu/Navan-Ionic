@@ -74,8 +74,14 @@ export class RegistroPage implements OnInit {
       this.userService
       .registerMotorista(obj)
       .pipe(takeUntil(this.destroy))
-      .subscribe((result) => {
-        console.log('result', result)
+      .subscribe(async (result) => {
+        const alert = await this.alertController.create({
+          header: 'Usuário Criado',
+          message: 'Usuário criado com sucesso!',
+          buttons: ['ok']
+        })
+    
+        await alert.present();
       })
     } else {
       const obj = {
