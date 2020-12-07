@@ -1,4 +1,8 @@
 # Navan-Ionic
-<h3>App feito em Ionic com API integrada</h3>
+<h3> Para rodar: </h3>
+<h5> Rodar a API: https://github.com/CaiqueSallas/API-Navan-NodeJS </h5>
+<h5> Ter NodeJs instalado;</h5>
+<h5> Ter Ionic instalado;</h5>
+<h5> Executar "npm i";</h5>
+<h5> Executar "ionic serve";</h5>
 
-<h4> Para rodar é necessário ter NodeJs e Ionic instalados globalmente e executar os comandos "npm i" e "ionic serve" </h4>
